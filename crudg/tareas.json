@@ -1,0 +1,59 @@
+{
+	"model_name":"Tarea",
+	"model_namespace":"Utilerias",
+	"controller_namespace":"Utilerias",
+	"route_group":"Utilerias",
+	"pagination":20,
+	"soft_deletes":"yes",
+	"pk":"id",
+	"localize":"yes",
+	"table":"tareas",
+    "fields": [		
+        {
+            "name": "tarea",
+            "type": "string"
+        },
+        {
+            "name": "descripcion",
+            "type": "text"
+        },
+        {
+            "name": "estatus",
+            "type": "select",
+            "options": {
+                "pendiente": "Pendiente",
+                "finalizado": "Finalizado"
+            }
+        },
+        {
+            "name": "user_id",
+            "type": "bigint#unsigned"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "column": "user_id",
+            "references": "id",
+            "on": "users",
+            "onDelete": "cascade"
+        }
+    ],
+    "relationships": [
+        {
+            "name": "user",
+            "type": "belongsTo",
+            "class": "App\\Models\\User"
+        }
+    ],
+    "validations": [
+        {
+            "field": "tarea",
+            "rules": "required|min:5|max:20"
+        },
+		{
+            "field": "descripcion",
+            "rules": "required|min:5"
+        }
+    ]
+	
+}

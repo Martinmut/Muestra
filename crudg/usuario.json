@@ -1,0 +1,29 @@
+{
+	"model_name":"Usuario",
+	"soft_deletes":"yes",
+	"pk":"id",
+	"localize":"yes",
+	"table":"usuarios",
+    "fields": [		
+        {
+            "name": "nombre",
+            "type": "string"
+        },
+        {
+            "name": "edad",
+            "type": "string"
+        },
+        {
+            "name": "correo",
+            "type": "string"
+        }
+    ],
+    
+    "validations": [
+        {
+            "field": "nombre",
+            "rules": "required|min:5|max:20"
+        }
+    ]
+	
+}

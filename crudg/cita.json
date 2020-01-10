@@ -1,0 +1,52 @@
+{
+    "model_name":"Cita",
+    "soft_deletes":"yes",
+    "pk":"id",
+    "localize":"yes",
+    "table":"citas",
+    "fields": [
+        {
+            "name": "fecha",
+            "type": "date"
+        },     
+        {
+            "name": "usuario_id",
+            "type": "integer#unsigned"
+        },
+        {
+            "name": "vehiculo_id",
+            "type": "integer#unsigned"
+        },
+        {
+            "name": "lugar",
+            "type": "string"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "column": "usuario_id",
+            "references": "id",
+            "on": "usuarios",
+            "onDelete": "cascade"
+        },
+        {
+            "column": "vehiculo_id",
+            "references": "id",
+            "on": "vehiculos",
+            "onDelete": "cascade"
+        }
+        ],
+    "relationships": [
+        {
+            "name": "usuario",
+            "type": "belongsTo",
+            "class": "App\\Usuario"
+        },
+        {
+            "name": "vehiculo",
+            "type": "belongsTo", 
+            "class": "App\\Vehiculo"
+        }
+        ]
+    
+}

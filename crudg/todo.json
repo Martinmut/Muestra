@@ -1,0 +1,59 @@
+{
+	"model_name":"Todo",
+	"model_namespace":"Utils",
+	"controller_namespace":"Utils",
+	"route_group":"Utils",
+	"pagination":15,
+	"soft_deletes":"yes",
+	"pk":"id",
+	"localize":"yes",
+	"table":"todos",
+    "fields": [		
+        {
+            "name": "name",
+            "type": "string"
+        },
+        {
+            "name": "description",
+            "type": "text"
+        },
+        {
+            "name": "status",
+            "type": "select",
+            "options": {
+                "pendiente": "Pendiente",
+                "finalizado": "Finalizado"
+            }
+        },
+        {
+            "name": "user_id",
+            "type": "bigint#unsigned"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "column": "user_id",
+            "references": "id",
+            "on": "users",
+            "onDelete": "cascade"
+        }
+    ],
+    "relationships": [
+        {
+            "name": "user",
+            "type": "belongsTo",
+            "class": "App\\Models\\User"
+        }
+    ],
+    "validations": [
+        {
+            "field": "name",
+            "rules": "required|min:5|max:20"
+        },
+		{
+            "field": "description",
+            "rules": "required|min:5"
+        }
+    ]
+	
+}

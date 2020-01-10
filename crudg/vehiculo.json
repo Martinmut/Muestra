@@ -1,0 +1,34 @@
+{
+	"model_name":"Vehiculo",
+	"soft_deletes":"yes",
+	"pk":"id",
+	"localize":"yes",
+	"table":"vehiculos",
+    "fields": [		
+        {
+            "name": "nombre",
+            "type": "string"
+        },
+        {
+            "name": "modelo",
+            "type": "string"
+        },
+        {
+            "name": "matricula",
+            "type": "string"
+        },
+        {
+            "name": "color",
+            "type": "string"
+        }
+    ],
+    
+    
+    "validations": [
+        {
+            "field": "nombre",
+            "rules": "required|min:5|max:20"
+        }
+    ]
+	
+}
